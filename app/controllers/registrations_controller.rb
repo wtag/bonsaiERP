@@ -35,7 +35,7 @@ class RegistrationsController < ApplicationController
 
     if @registration.register
       #RegistrationMailer.send_registration(@registration).deliver
-      redirect_to new_organization_path, notice: t("controllers.registrations.create_notice")
+      redirect_to new_organisation_path, notice: t("controllers.registrations.create_notice")
     else
       render :new
     end
