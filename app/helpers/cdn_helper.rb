@@ -3,7 +3,7 @@ module CdnHelper
   SCRIPTS = {
     "jquery" => {
       klass: "jQuery",
-      cdn: "http://code.jquery.com/jquery-1.11.0.min.js",
+      cdn: "https://code.jquery.com/jquery-1.11.0.min.js",
       local: "/assets/jquery/jquery-1.11.0.min.js"
     },
     "angular" => {
