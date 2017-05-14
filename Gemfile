@@ -31,6 +31,7 @@ gem 'dragonfly'
 gem "rack-cors", require: "rack/cors"
 
 gem "responders", "~> 2.0"
+gem "puma"# Web server
 
 group :production do
   gem 'newrelic_rpm'
@@ -55,7 +56,6 @@ group :development do
 end
 
 group :development, :test do
-  gem "puma"# Web server
   gem "spring-commands-rspec"
   gem "rspec-rails"#, '2.99.0'
   gem "ffaker"
