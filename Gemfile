@@ -36,6 +36,7 @@ group :production do
   gem 'newrelic_rpm'
   gem 'bugsnag' # Report of errors
   gem 'rack-cache', require: 'rack/cache'
+  gem 'rails_12factor'
 end
 
 group :development do
