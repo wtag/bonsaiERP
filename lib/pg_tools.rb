@@ -31,7 +31,8 @@ module PgTools
   end
 
   def change_schema(schema_name)
-    connection.schema_search_path = [schema_name, 'public'].join(', ')
+    #raise schema_name.inspect;
+    connection.schema_search_path = [schema_name, 'public'].compact.join(', ')
   end
   alias_method :change_tenant, :change_schema
 
