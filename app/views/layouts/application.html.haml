@@ -4,17 +4,17 @@
   %head
     %meta(http-equiv="content-type" content="text/html;charset=UTF-8")
     %meta(content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport")
-    %link(rel= "shortcut icon" href="/bonsai.ico" type="image/x-icon")
+    %link{href: image_url('nile_favicon.png')}(rel= "shortcut icon" type="image/x-icon")
     = csrf_meta_tag
 
-    %title bonsaiERP - #{current_organisation}
+    %title ERP - #{current_organisation}
 
     = stylesheet_link_tag "application", media: 'all'
     = javascript_include_tag asset_path('angular/angular-file-upload-shim.min.js')
     = cdn_scripts 'jquery', 'angular'
     = javascript_include_tag "application"
     -if Rails.env.production?
-      %script(src='//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js' data-apikey='5764f05c4e7d87832059e096471f9bc9')
+      -#%script(src='//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js' data-apikey='5764f05c4e7d87832059e096471f9bc9')
       = render 'layouts/google_analytics'
 
     :javascript
