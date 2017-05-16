@@ -1,401 +1,513 @@
+---
 en:
-  number:
-    format:
-      separator: "."
-      delimiter: " "
-      precision: "2"
-  general:
-    approved_by: Approved by
-    created_by: Created by
-    modified_by: Modified by
-    nulled_by: Nulled by
-    export: Export
-    contact: Contact
-    code: Código
-    fix_errors: Fix errors
-    date_start: Start date
-    date_end: End date
-    search: Search
-
-
+  account_ledger:
+    devolution_description: Return % {trans}, account % {account}
+    initial_money: Opening balance
+    payment_description: "% {Pay_type} of % {trans}% {ref}, account % {account}"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            matchcode: The identifier already exists, please change
+        item:
+          attributes:
+            code:
+              taken: The code selected already exists
+            name:
+              taken: There is an item with the same name
   allowed_errors:
     movement:
-      negative_balance: "<a href='javascript:;' id='negative-balance-link'>Let's fix the negative balance</a>, you should make a devolution"
-      negative_item_balance: "<a href='javascript:;' id='negative-invenory-balance-link'>Adjust negative items</a>, you should return items"
-      negative_items_balance: "<a href='javascript:;' id='negative-invenory-balance-link'>Ajustemos</a> los ítem con negativo, le recomendamos realizar una devolución de mercadería"
-      balance_greater_than_total: "<a href='javascript:;' id='balance-greater-than-total-link'>Fix balance</a>, you should make a payment"
-    inventory:
-      negative_stock: ""
-
-  # Active Model
+      balance_greater_than_total: "<A href = 'javascript :;' Id = 'balance-greater-than-total-link'>
+        Let's equalize the balance </a> by making a payment or collection"
+      negative_balance: "<A href = 'javascript :;' Id = 'negative-balance-link'> Let's
+        solve the negative balance </a>, we recommend you make a return"
+      negative_items_balance: "<A href = 'javascript :;' Id = 'negative-invenory-balance-link'>
+        Let's adjust </a> with negative, we recommend you to return merchandise"
+      negative_item_balance: "<A href = 'javascript :;' Id = 'negative-invenory-balance-link'>
+        Let's adjust </a> with negative, we recommend you to return merchandise"
+  bonsai:
+    autocomplete_placeholder: Start typing to autocomplete
+    registration: Complete your registration on %{domain}
+  common:
+    delete: Delete
+    edit: Edit
+    new: New
+    search: Search
+    show: See
+  contact:
+    client: Customer
+    staff: Personal
+    supplier: Provider
+  controllers:
+    expenses:
+      index:
+        search:
+          contact_expense: Search by contact or egress
+          date_end: End date
+          date_start: Start date
+          state: State
+      reference: Exit charge %{name}
+    incomes:
+      index:
+        batch_payment:
+          title: Multiple Collection
+        search:
+          contact_income: Search by contact or login
+          date_end: End date
+          date_start: Start date
+          state: State
+      reference: Revenue collection %{name}
+    loans:
+      index:
+        all: Everyone
+        given: Granted
+        received: Received
+        search_button: Search
+        search_placeholder: Search by contact or reference
+      show:
+        ledger_in_button: Increase loan
+    loan_ledger_ins:
+      new_give:
+        title: Increase loan
+    loan_payments:
+      form:
+        amount: Entitlement
+        date: Date
+        exchange_rate: Exchange rate
+        reference: Reference
+        total: TOTAL
+        verify_bank: Check (bank only)
+        verify_bank_hint: 'Check the future. Ex .: (Check)'
+    movements:
+      index:
+        search:
+          contact_expense: Search by contact or egress
+          date_end: End date
+          date_start: Start date
+          state: State
+    registrations:
+      create_notice: You have successfully created your business
+  currency:
+    exchange_rate: Exchange rate of ( %{cur1} = %{cur2})
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names: "---- - Sunday - Monday - Tuesday - Wednesday - Thursday - Friday -
+      Saturday"
+    formats:
+      default: "%D %b %Y"
+      excel: "%D-%b-%Y"
+      long: "%D of %B %Y"
+      short: "%D of %b"
+    month_names:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+      "-": year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: About 1 hour
+        other: About %{count} hours
+      about_x_months:
+        one: About 1 month
+        other: Around %{count} months
+      about_x_years:
+        one: About 1 year
+        other: Around %{count} years
+      almost_x_years:
+        one: Almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: Less than 1 minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: Less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: More than 1 year
+        other: 'over %{count} years '
+      x_days:
+        one: 1 day
+        other: "%{Count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minutes
+      month: Month
+      second: Seconds
+      year: Year
+  email:
+    invoice_body: Dear customer, we will send you the attachment of the sale
+    invoice_title: Sale note
+    registration:
+      send: Complete your record %{email} in %{app_name}
+      user: Welcome to %{app_name}, you have been added as a user on %{company}
+    reset_password:
+      subject: Recover password from %{app_name}
   errors:
-    # The default format to use in full error messages.
-    format: "%{attribute} %{message}"
-
-    template:
-      header:
-        one:   "No se pudo guardar este/a %{model} porque se encontró 1 error"
-        other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
-      # The variable :count is also available
-      body: "Se encontraron problemas con los siguientes campos:"
-
-    # The values :model, :attribute and :value are always available for interpolation
-    # The value :count is available when applicable. Can be used for pluralization.
-    messages: &errors_messages
-      inclusion: "no está incluido en la lista"
-      exclusion: "está reservado"
-      invalid: "no es válido"
-      confirmation: "no coincide con la confirmación"
-      accepted: "debe ser aceptado"
-      empty: "no puede estar vacío"
-      blank: "no puede estar en blanco"
-      too_long: "es demasiado largo (%{count} caracteres máximo)"
-      too_short: "es demasiado corto (%{count} caracteres mínimo)"
-      wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
-      not_a_number: "no es un número"
-      greater_than: "debe ser mayor que %{count}"
-      greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
-      equal_to: "debe ser igual a %{count}"
-      less_than: "debe ser menor que %{count}"
-      less_than_or_equal_to: "debe ser menor que o igual a %{count}"
-      odd: "debe ser impar"
-      even: "debe ser par"
-      invalidkeys: "Solo debe ingresar datos permitidos" # New one to check if the keys that are assigned are valid
-      email_taken: "el email que ingreso ya existe, seleccione otro email"
-      email: "el email que ingreso no es válido"
-      invalid_email_format: 'el email que ingreso no es válido'
-      taken: 'Ya existe'
+    format: "%{Attribute} %{message}"
+    messages:
+      accepted: Must be accepted
       account_ledger:
-        invalid_contact: "Debe seleccionar un Cliente, Proveedor o Personal"
-        same_account: "Las cuentas que selecciono son identicas"
-        amount: "La cantidad que ingreso es mayor a la disponible en la cuenta"
-        null_conciliation: "No se puede conciliar una operación anulada"
-        same_account: 'La cuenta destino debe ser distinta'
-        approved: 'Ya esta aprobado'
-        nulled: 'Ya esta anulado'
+        amount: The amount you enter is greater than the amount available in the account
+        approved: It's already approved
+        invalid_contact: You must select a Customer, Supplier or Personal
+        nulled: It's already overridden
+        null_conciliation: Unable to reconcile an aborted operation
+        same_account: The target account must be different
+      blank: can not be blank
+      confirmation: does not match confirmation
       contact:
-        matchcode: "El idenificador ya existe, por favor cambie"
+        matchcode: The identifier already exists, please change
       devolution:
-        movement_total: "La cantidad y el balance suman un valor mayor al total"
+        movement_total: The amount and the balance add up to a value greater than
+          the total
+      email: The email you entered is not valid
+      email_taken: The incoming email already exists, select another email
+      empty: You can not be empty
+      equal_to: Must be equal to %{count}
+      even: Must be even
+      exclusion: It is reserved
       expense:
-        not_draft: "El estado del egreso no es borrador"
-        payments: "Extisten pagos que se han afectado al balance"
+        not_draft: The status of the egress is not draft
+        payments: There are payments that have been affected to the balance
       expenses:
         batch_payment:
-          invalid_expenses: 'Uno o mas de los egresos seleccionados no son válidos'
-        not_draft: "El estado del ingreso no es borrador"
-        payments: "Extisten cobros que se han afectado al balance"
+          invalid_expenses: One or more of the selected expenditures are not valid
+        not_draft: Income statement is not draft
+        payments: There are collections that have been affected by the balance
+      greater_than: Must be greater than %{count}
+      greater_than_or_equal_to: Must be greater than or equal to %{count}
+      inclusion: Is not included in the list
       incomes:
         batch_payment:
-          invalid_incomes: 'Uno o mas de los ingresos seleccionados no son válidos'
-          problem: 'Error en el ingreso %{name} verifique por favor'
-          invalid_account: 'Selecciono una caja o banco incorrecto'
+          invalid_account: I selected an incorrect box or bank
+          invalid_incomes: One or more of the selected income is invalid
+          problem: Error in login %{name} please check
       income_detail:
-        item_not_for_sale: "Debe seleccionar un ítem que se vende"
-      inventory_detail:
-        stock_quantity: "La cantidad es mayor a la disponible en stock"
-        transaction_quantity: "La cantidad ingresada es invalida"
-        repeated_item: "El ítem esta repetido"
-        invalid_balance: "La cantidad que ingreso es mayor que el saldo"
-      inventory:
-        movement_items: "Ha seleccionado items que no estan en la operación"
-        invalid_item: "Ha seleccionado items inexistentes"
-        invalid_store: "El almacen que selecciono es incorrecto"
-        empty_items: "No existe items para realizar la operación"
-        item_balance: "Existen items que exeden el máximo permitido"
-        stock_quantity: "Existen items que exceden la cantidad máxima"
-        negative_stock: "Hay ítems que generaton un stock negactivo"
-        movement_quantity: "La cantidad es mayor a la permitida de %{q}"
-        at_least_one_item: "Debe existir al menos un item con cantidad mayor a 0"
-      item:
-        repeated: "El ítem es repetido"
-        repeated_items: "Existen items repetidos"
-      loan:
-        due_date: "Debe ser mayor o igual que la fecha"
-        amount_int: 'La cantidad o el interes debe ser mayor que 0'
-      movement:
-        repeated_items: "Existen items repetidos, por favor revise"
-        unconcilied_ledgers: "Existen transacciones pendientes de revisión"
-        changes: "No es posible cambiar el número de referencia o el contacto"
-        paid_amount: "El total es menor a la cantidad %{pay_type}, le recomendamos realizar una devolución"
-        number_of_items: "Debe ingresar seleccionar al menos un ítem"
-        number_of_items: "Debe ingresar seleccionar al menos un ítemon"
-        currency_change: "No es posible cambiar la moneda, se realizaron operaciones"
-        greater_due_date: "La fecha de vencimiento debe ser mayor o igual que la fecha"
-      payment:
-        balance: "La cantidad es mayor que el saldo"
-        expense_balance: "La cantidad es mayor que el saldo del Egreso seleccionado"
-        income_balance: "La cantidad es mayor que el saldo del Ingreso seleccionado"
-        invalid_amount_or_interest: "La cantidad o el interes debe ser mayor que 0"
-        invalid_expense_state: "El Egreso que selecciono no esta aprovado"
-        invalid_income_state: "El Ingreso que selecciono no esta aprovado"
-        date: "Ingrese una fecha válida"
-        valid_accounts_currency: "Alguna de las cuentas debe ser en %{currency}"
-        total: "El valor total es incorrecto"
-      quick_income:
-        valid_account_to: "Debe seleccionar una cuenta Banco o Caja"
-      store:
-        destroy: 'No es posible borrar debido a que tiene operaciones'
-        selected: 'Usted ha seleccionado un alamcen invalido.'
-      user:
-        email: "El formato de su email es incorrecto"
-        confirm: "No ha confirmado su cuenta. Revise en su email el mensaje \"Active su cuenta en www.bonsaierp.com\" y siga las instrucciones"
-        password_confirmation: "La contraseña y la confirmación de contraseña no son iguales"
-        wrong_password: "La contraseña que ingreso es incorrecta"
-        user_limit: "Su empresa ha llegado a su limite en el número de usuarios"
-        email_not_found: "El email que ingreso no existe"
-        link_found: 'El usuario ya existe en su empresa activelo.'
-      movement_details:
-        not_destroy: "para eliminar este ítem realize una devolución de inventario"
-        item_changed: "No es posible cambiar de item, se volvio al original"
-        destroy: "No se puede borrar el item"
+        item_not_for_sale: You must select an item that is sold
       income_details:
-        balance: "La cantida es menor a la cantidad entregada"
-      repeated_items: "Existen items repetidos, por favor revise"
-      repeated_item: "El ítem seleccionado esta repetido"
+        balance: The amount is less than the quantity delivered
+      invalid: It's not valid
+      invalidkeys: You must only enter allowed data
+      invalid_email_format: The email you entered is not valid
+      inventory:
+        at_least_one_item: There must be at least one item with more than 0
+        empty_items: There are no items to perform the operation
+        invalid_item: You have selected missing items
+        invalid_store: The stock I selected is incorrect
+        item_balance: There are items that exceed the maximum allowed
+        movement_items: You have selected items that are not in the operation
+        movement_quantity: The amount is greater than %{q}
+        negative_stock: There are items that generate a negative stock
+        stock_quantity: There are items that exceed the maximum amount
+      inventory_detail:
+        invalid_balance: The amount you enter is greater than the balance
+        repeated_item: The item is repeated
+        stock_quantity: Quantity is higher than available in stock
+        transaction_quantity: The amount entered is invalid
+      item:
+        repeated: The item is repeated
+        repeated_items: There are repeated items
+      less_than: Must be less than %{count}
+      less_than_or_equal_to: Must be less than or equal to %{count}
+      loan:
+        amount_int: Quantity or interest must be greater than 0
+        due_date: Must be greater than or equal to date
+      movement:
+        changes: It is not possible to change the reference number or contact
+        currency_change: It is not possible to change the currency,
+        greater_due_date: The due date must be greater than or equal to the date
+        number_of_items: You must enter select at least one item
+        paid_amount: The total is less than the amount %{pay_type}, we recommend you
+          make a return
+        repeated_items: There are repeated items, please check
+        unconcilied_ledgers: There are pending transactions for review
+      movement_details:
+        destroy: Item can not be deleted
+        item_changed: It is not possible to change the item, it was returned to the
+          original
+        not_destroy: To remove this item perform an inventory return
+      not_a_number: It's not a number
+      odd: Must be odd
+      payment:
+        balance: The amount is greater than the balance
+        date: Please enter a valid date
+        expense_balance: The amount is greater than the selected egress balance
+        income_balance: Amount is greater than the selected Income balance
+        invalid_amount_or_interest: Quantity or interest must be greater than 0
+        invalid_expense_state: The Egress I selected is not approved.
+        invalid_income_state: The income I select is not approved
+        total: The total value is incorrect
+        valid_accounts_currency: Some of the accounts must be in %{currency}
+      quick_income:
+        valid_account_to: You must select a bank account or bank account
       registration:
-        unique_tenant: 'El subdominio que eligio ya existe'
-
-  # Active Support
-  date:
-    formats:
-      # Use the strftime parameters for formats.
-      # When no format has been given, it uses default.
-      # You can provide other formats here if you like!
-      default: "%d %b %Y"
-      short: "%d de %b"
-      long: "%d de %B %Y"
-      excel: "%d-%b-%Y"
-
-    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
-    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
-
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
-    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-    # Used in date_select and datime_select.
-    order:
-      - :day
-      - :month
-      - :year
-
-  time:
-    formats:
-      default: "%d %b %Y %H:%M"
-      short: "%d %b %H:%M"
-      long: "%d de %B de %Y %H:%M"
-    am: "am"
-    pm: "pm"
-
-  # Used in array.to_sentence.
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " y "
-      last_word_connector: ", y "
+        unique_tenant: The subdomain you chose already exists
+      repeated_item: The selected item is repeated
+      repeated_items: There are repeated items, please check
+      store:
+        destroy: Can not delete because you have operations
+        selected: You have selected an invalid link.
+      taken: It already exists
+      too_long: Is too long ( %{count} characters max)
+      too_short: Is too short ( %{count} characters minimum)
+      user:
+        confirm: You have not confirmed your account. Check your email for the message
+          "Activate your account at www.welldev.io" and follow the instructions
+        email: The format of your email is incorrect
+        email_not_found: The email you entered does not exist
+        link_found: The user already exists in your company activelo.
+        password_confirmation: Password and password confirmation are not the same
+        user_limit: Your company has reached its limit on the number of users
+        wrong_password: The password that you entered is incorrect
+      wrong_length: Does not have the correct length ( %{count} exact characters)
+    template:
+      body: 'Problems were found with the following fields:'
+      header:
+        one: Could not save this %{model} because 1 error was encountered
+        other: Could not save this %{model} because %{count} errors were encountered
+  expense:
+    account_ledger_reference: Spending
+    paid: Paid out
+    payment:
+      reference: Outgoing payment %{expense}
+  general:
+    approved_by: Approved by
+    code: Code
+    contact: CONTACT
+    created_by: Created by
+    export: To export
+    fix_errors: Correct the errors
+    modified_by: Modified by
+    nulled_by: Annulled by
+    search: Search
+  helpers:
     select:
-      prompt: "Por favor seleccione"
-
-  simple_form:
-    "yes": "Si"
-    "no": "No"
-    required:
-      text: "requerido"
-      mark: "*"
-
-  common:
-    new: 'Nuevo'
-    edit: 'Editar'
-    delete: 'Borrar'
-    show: 'Ver'
-    search: "Buscar"
-
-  email:
-    invoice_title: "Nota de venta "
-    invoice_body: "Estimado cliente le hacemos llegar el adjunto de la venta"
-    registration:
-      send: "Completa tu registro %{email} en %{app_name}"
-      user: "Bienvenido a %{app_name}, usted ha sido adicionado como usuario en %{company}"
-    reset_password:
-      subject: "Recuperar contraseña de %{app_name}"
-
-  bonsai:
-    registration: "Complete su registro en %{domain}"
-    autocomplete_placeholder: "Comience a escribir para autocompletar"
-
-  views:
-    pagination:
-      next: "&rsaquo;"
-      previous: "&lsaquo;"
-      first: "&laquo;"
-      last: "&raquo;"
-      truncate: "..."
-
-  # Models
-  movement:
-    states:
-      draft: Draft
-      approved: Approved
-      paid: Payed
-      nulled: Nulled
-      due: Due
-      error: Error
-
-
-  ########################################
-  # Translations for history
+      prompt: please select
+    submit:
+      create: Save %{model}
+      submit: Save %{model}
+      update: Refresh %{model}
+  history:
+    new_record: Created by %{user}
+  income:
+    batch_payment:
+      reference: Income collection %{income}
+    paid: Paid out
+    payment:
+      reference: Income collection %{income}
   item:
     attributes:
-      for_sale: Venta
       active: Visible
-      unit_id: Unidad
-      price: Precio de VENTA
-      buy_price: Precio de COMPRA
-      name: Nombre
-      code: Código
-
-  movement_attributes: &movement_attributes
-    name: 'código'
-    state: 'estado'
-    amount: 'saldo'
-    total: 'total'
-    date: 'fecha'
-    due_date: 'fecha de vencimiento'
-    currency: 'moneda'
-    exchange_rate: 'tipo de cambio'
-    tax_id: 'impuesto'
-    description: 'descripción'
-    inventory: 'Inventario'
-    tax_in_out: 'Impuesto por dentro'
-    tax_percentage: 'Porcentaje impuesto'
-
-  income:
-    paid: Charged
-    attributes:
-      <<: *movement_attributes
-    payment:
-      reference: "Cobro ingreso %{income}"
-    batch_payment:
-      reference: "Cobro ingreso %{income}"
-
-  expense:
-    paid: Paid
-    account_ledger_reference: "Gasto"
-    payment:
-      reference: "Pago egreso %{expense}"
-    attributes:
-      <<: *movement_attributes
-
-  loan_attributes: &loan_attributes
-    date: fecha
-    due_date: vence el
-    amount: saldo
-    total: total
-    interests: intereses
-
-  loans:
-    give:
-      attributes:
-        <<: *loan_attributes
-    receive:
-      attributes:
-        <<: *loan_attributes
-
-  account_ledger:
-    payment_description: "%{pay_type} de %{trans} %{ref}, cuenta %{account}"
-    initial_money: "Saldo inicial"
-    devolution_description: "Devolución %{trans}, cuenta %{account}"
-  currency:
-    exchange_rate:
-      "tipo de cambio de ( %{cur1} = %{cur2} )"
-  contact:
-    client: "Cliente"
-    supplier: "Proveedor"
-    staff: "Personal"
+      buy_price: Purchase price
+      code: Code
+      for_sale: Sale
+      name: FIRST NAME
+      price: Sale price
+      unit_id: Unit
+  loan_attributes:
+    amount: balance
+    date: Date
+    due_date: Wins the
+    interests: Interests
+    total: TOTAL
+  movement:
+    states:
+      approved: Approved
+      draft: Draft
+      due: Defeated
+      error: Error
+      nulled: Canceled
+      paid: Paid out
+  movement_attributes:
+    amount: balance
+    currency: Coin
+    date: Date
+    description: Description
+    due_date: Due date
+    exchange_rate: Exchange rate
+    inventory: Inventory
+    name: Code
+    state: State
+    tax_id: tax
+    tax_in_out: Inside tax
+    tax_percentage: Percentage tax
+    total: TOTAL
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+    format:
+      precision: 2
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billions
+          million: Million
+          quadrillion: Quadrillion
+          thousand: thousand
+          trillion: Trillion
+      format:
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    precision:
+      format:
+        separator: "."
   organisation:
     errors:
       tenant:
-        list: "Debe seleccionar otro valor"
-  history:
-    new_record: Creado por %{user}
-  ################################################################
-  # Controllers
-  controllers:
-    movements:
-      index:
-        search: &search_movements_form
-          contact_expense: "Buscar por contacto o egreso"
-          date_start: "Fecha inicio"
-          date_end: "Fecha fin"
-          state: "Estado"
-
-    expenses:
-      reference: "Cobro egreso %{name}"
-      index:
-        search:
-          contact_expense: "Buscar por contacto o egreso"
-          date_start: "Fecha inicio"
-          date_end: "Fecha fin"
-          state: "Estado"
-
-
-    incomes:
-      reference: "Cobro ingreso %{name}"
-      index:
-        batch_payment:
-          title: "Cobro multiple"
-        search:
-          contact_income: "Buscar por contacto o ingreso"
-          date_start: "Fecha inicio"
-          date_end: "Fecha fin"
-          state: "Estado"
-
-    loans:
-      index:
-        all: "Todos"
-        given: "Otorgados"
-        received: "Recibidos"
-        search_placeholder: "Buscar por contacto o referencia"
-        search_button: "Buscar"
-      show:
-        ledger_in_button: "Aumentar prestamo"
-
-    loan_ledger_ins:
-      new_give:
-        title: "Aumentar prestamo"
-
-    loan_payments:
-      form:
-        amount: "Catidad"
-        exchange_rate: "Tipo de cambio"
-        total: "TOTAL"
-        date: "Fecha"
-        verify_bank: "Verificar (solo bank)"
-        verify_bank_hint: "Verificar a futuro. Ej.: (Cheque)"
-        reference: "Referencia"
-  ################################################################
-  # Presenters
+        list: You must select another value
   presenters:
-    loans:
-      receive:
-        ledger_ins_title: "Ingreso de prestamos"
-      give:
-        ledger_ins_title: "Egreso de prestamos"
     inventory:
-      title:
-        deliver: "Entrega"
-        devolution: "Devolución"
-        pick: "Recojo"
-        in: "Ingreso"
-        out: "Egreso"
       contact_tooltip:
-        client: "Cliente"
-        supplier: "Proveedor"
+        client: Customer
+        supplier: Provider
       related_tip:
-        income: "Ingreso"
-        expense: "Egreso"
-        store_destiny: "Almacen destino"
-        store_source: "Almacen origen"
+        expense: I leave
+        income: Entry
+        store_destiny: Target store
+        store_source: Source store
+      title:
+        deliver: Delivery
+        devolution: Return
+        in: Entry
+        out: I leave
+        pick: I pick up
       transaction_tooltip:
-        sale: "Venta"
-        buy: "Compra"
+        buy: Purchase
+        sale: Sale
+    loans:
+      give:
+        ledger_ins_title: Payday loans
+      receive:
+        ledger_ins_title: Ingreso de prestamos
+  simple_form:
+    'no': 'No'
+    required:
+      mark: "*"
+      text: requerido
+    'yes': Si
+  support:
+    array:
+      last_word_connector: ", y "
+      two_words_connector: " y "
+      words_connector: ", "
+    select:
+      prompt: please select
+  time:
+    am: A.M
+    formats:
+      default: "%d %b %Y %H:%M"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: p.m
+  views:
+    dashboard:
+      home:
+        help_recomendation: " You will always find <a class='dark b'> <i class = 'icon-question-sign'>
+          </ i> Help </a> at the top right of the page"
+        move_over_users: Move the mouse pointer over the user icons
+        title: Welcome to <i> WellDev ERP </ i> we start with these recommendations
+        users_recomendation: "<I> WellDev ERP </ i> presents those who made the changes
+          by moving the pointer over the user icons"
+      index:
+        general_aspects: General features
+    footer:
+      slogan: Software for business management.
+    incomes:
+      incomes:
+        index:
+          new: New entry
+          title: INCOME
+      index:
+        new: New entry
+        title: INCOME
+      pagination:
+        truncate: "..."
+      sessions:
+        flash_login: Login successfully
+        flash_login_error: Email or password is not valid please try again
+        new:
+          email_placeholder: email
+          forgot_your_password: Forgot your password?
+          icon_email_title: email
+          icon_pass_title: password
+          login: LOGIN
+          pass_placeholder: password
+          submit: LOGIN
+    pagination:
+      truncate: "..."
+    sessions:
+      flash_login: Login successfully
+      flash_login_error: Email or password is not valid please try again
+      new:
+        email_placeholder: email
+        forgot_your_password: Forgot your password?
+        icon_email_title: email
+        icon_pass_title: password
+        login: LOGIN
+        pass_placeholder: password
+        submit: LOGIN
